@@ -37,7 +37,7 @@ internal sealed class TrayApplicationContext : ApplicationContext
         toggleItem.Click+=(_,_)=>ChangeMode(DrawingMode.Toggle);holdItem.Click+=(_,_)=>ChangeMode(DrawingMode.Hold);
         menu.Items.AddRange([toggleItem,holdItem]);menu.Items.Add(new ToolStripSeparator());
         menu.Items.Add("Çıkış",null,(_,_)=>ExitThread());
-        tray=new(){Text="Touchpad: Hazır değil",Icon=BrandAssets.TrayIcon(SessionState.NotReady),ContextMenuStrip=menu,Visible=true};
+        tray=new(){Text="Swipe & Sketch: Hazır değil",Icon=BrandAssets.TrayIcon(SessionState.NotReady),ContextMenuStrip=menu,Visible=true};
         tray.DoubleClick+=(_,_)=>ShowSettings();
         form.FormClosing+=(_,e)=>{if(!exiting){e.Cancel=true;form.Hide();}};
         form.ShowRequested+=ShowSettings;form.Hotkey+=Toggle;form.ToggleSession+=Toggle;
@@ -135,7 +135,7 @@ internal sealed class TrayApplicationContext : ApplicationContext
         form.EnableButton.Enabled=target.Configured||controller.Enabled||controller.OwnsButton;
         toggleItem.Checked=controller.Mode==DrawingMode.Toggle;holdItem.Checked=controller.Mode==DrawingMode.Hold;
         var shortText=controller.State switch{SessionState.Drawing=>"Çiziyor",SessionState.Ready=>"Hazır",SessionState.Error=>"Hata",_=>"Duraklatıldı"};
-        tray.Text=$"Touchpad · {DrawingKeyOption.Label(settings.DrawingKey)} · {shortText}";
+        tray.Text=$"Swipe & Sketch · {DrawingKeyOption.Label(settings.DrawingKey)} · {shortText}";
         tray.Icon=BrandAssets.TrayIcon(controller.State);
     }
     private void ShowSettings(){if(exiting)return;form.Show();form.WindowState=FormWindowState.Normal;form.Activate();}

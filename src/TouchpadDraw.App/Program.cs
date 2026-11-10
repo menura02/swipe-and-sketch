@@ -25,7 +25,7 @@ internal static class Program
         Application.ThreadException += (_, e) =>
         {
             context?.EmergencyStop();
-            MessageBox.Show("Beklenmeyen hata nedeniyle çizim duraklatıldı.\n" + e.Exception.Message, "Touchpad Çizim Yardımcısı");
+            MessageBox.Show("Beklenmeyen hata nedeniyle çizim duraklatıldı.\n" + e.Exception.Message, "Swipe & Sketch");
         };
         AppDomain.CurrentDomain.UnhandledException += (_, _) => { context?.EmergencyStop(); };
         try
@@ -34,6 +34,6 @@ internal static class Program
             using (context = new TrayApplicationContext(watchdog)) Application.Run(context);
         }
         catch (Exception e)
-        { context?.EmergencyStop(); MessageBox.Show("Uygulama başlatılamadı.\n" + e.Message, "Touchpad Çizim Yardımcısı", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        { context?.EmergencyStop(); MessageBox.Show("Uygulama başlatılamadı.\n" + e.Message, "Swipe & Sketch", MessageBoxButtons.OK, MessageBoxIcon.Error); }
     }
 }

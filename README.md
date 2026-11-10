@@ -1,10 +1,10 @@
-# Touchpad Çizim Yardımcısı
+# Swipe & Sketch
 
 Paint, Photoshop ve fareyle çizimi destekleyen diğer Windows programlarında, touchpad’e basılı tutmadan çizim yapmayı sağlar. Arka planda sol fare düğmesini yönetir; kendi tuvali yoktur.
 
 ## Çalıştırma
 
-Windows 11 x64 için güncel taşınabilir paket `artifacts/portable-win-x64-1.1.0` klasöründedir. Önce eski uygulamada sistem tepsisi menüsünden **Çıkış** seçin; ardından yeni klasördeki `TouchpadDrawHelper.exe` dosyasını açın. Klasörü bütün olarak taşıyın. .NET kurulumu gerekmez. Uygulama normal kullanıcı yetkisiyle çalışır.
+Windows 11 x64 için taşınabilir paketi oluşturmak için aşağıdaki yayın komutunu çalıştırın. Oluşturulan paket `artifacts/portable-win-x64-1.1.1` klasöründedir. Önce eski uygulamada sistem tepsisi menüsünden **Çıkış** seçin; ardından yeni klasördeki `TouchpadDrawHelper.exe` dosyasını açın. Klasörü bütün olarak taşıyın. .NET kurulumu gerekmez. Uygulama normal kullanıcı yetkisiyle çalışır.
 
 1. Paint veya Photoshop’u açın ve fırça aracını seçin.
 2. Yardımcıda **Pencere seç** ile hedef pencereyi seçin.
@@ -44,7 +44,7 @@ Windows ve .NET 10 SDK gerekir. Harici çalışma zamanı veya test kütüphanes
 dotnet build src/TouchpadDraw.App/TouchpadDraw.App.csproj -c Release
 dotnet run --project tests/TouchpadDraw.Tests/TouchpadDraw.Tests.csproj -c Release
 dotnet run --project src/TouchpadDraw.App/TouchpadDraw.App.csproj
-dotnet publish src/TouchpadDraw.App/TouchpadDraw.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o artifacts/portable-win-x64-1.1.0
+dotnet publish src/TouchpadDraw.App/TouchpadDraw.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o artifacts/portable-win-x64-1.1.1
 ```
 
 Çekirdek (`TouchpadDraw.Core`) durum makinesini ve kurtarma protokolünü platformdan bağımsız tutar. WinForms uygulaması Windows hook’larını, `SendInput`, pencere/DPI takibini, seçim katmanını ve tepsiyi yönetir. Test programı gerçek klavye veya fare girdisi üretmeden çalışır ve başarısızlıkta sıfırdan farklı çıkış kodu döndürür.

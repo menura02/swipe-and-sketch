@@ -7,7 +7,8 @@
     <Nullable>enable</Nullable>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyName>TouchpadDrawHelper</AssemblyName>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
+    <Product>Swipe &amp; Sketch</Product>
     <ApplicationIcon>Assets/app.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup><ProjectReference Include="../TouchpadDraw.Core/TouchpadDraw.Core.csproj" /></ItemGroup>

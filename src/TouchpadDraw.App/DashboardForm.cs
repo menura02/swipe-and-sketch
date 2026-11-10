@@ -40,7 +40,7 @@ internal sealed class DashboardForm : Form
         this.preview=preview;
         SuspendLayout();
         Font=new("Segoe UI",10); AutoScaleDimensions=new(96,96); AutoScaleMode=AutoScaleMode.Dpi;
-        Text="Touchpad Çizim Yardımcısı"; BackColor=Theme.Canvas; ForeColor=Theme.Ink;
+        Text="Swipe & Sketch"; BackColor=Theme.Canvas; ForeColor=Theme.Ink;
         ClientSize=new(920,760); MinimumSize=new(880,740); StartPosition=FormStartPosition.CenterScreen;
         Icon=BrandAssets.AppIcon;
         var root=new TableLayoutPanel{Dock=DockStyle.Fill,Padding=new(28,20,28,12),ColumnCount=1,RowCount=4,BackColor=Theme.Canvas};
@@ -51,7 +51,7 @@ internal sealed class DashboardForm : Form
         var header=new TableLayoutPanel{Dock=DockStyle.Fill,ColumnCount=2,RowCount=1,Margin=new(0)};
         header.RowStyles.Add(new(SizeType.Percent,100));
         header.ColumnStyles.Add(new(SizeType.Percent,100));header.ColumnStyles.Add(new(SizeType.Absolute,100));
-        var heading=Flow();heading.Controls.Add(Theme.Text("TOUCHPAD  /  ÇİZİM YARDIMCISI",9,true,Theme.Accent));
+        var heading=Flow();heading.Controls.Add(Theme.Text("SWIPE & SKETCH",9,true,Theme.Accent));
         heading.Controls.Add(Theme.Text("Çizime odaklan.",29,true));
         heading.Controls.Add(Theme.Text("Sevdiğin uygulamada, parmağını özgürce hareket ettir.",10,false,Theme.Muted));
         logo.Image=BrandAssets.RenderLogo(256);logo.Dock=DockStyle.Fill;logo.Margin=new(12,0,0,20);
@@ -131,7 +131,7 @@ internal sealed class DashboardForm : Form
     }
     internal void SetKeyHint(Keys drawingKey, Keys shortcut)
     {
-        footer.Text=$"{DrawingKeyOption.Label(drawingKey)}  Çizim   ·   Ctrl + Alt + {shortcut}  Duraklat   ·   Esc  Durdur   ·   v1.1.0";
+        footer.Text=$"{DrawingKeyOption.Label(drawingKey)}  Çizim   ·   Ctrl + Alt + {shortcut}  Duraklat   ·   Esc  Durdur   ·   v{Application.ProductVersion.Split('+')[0]}";
     }
     protected override void WndProc(ref Message m)
     {
